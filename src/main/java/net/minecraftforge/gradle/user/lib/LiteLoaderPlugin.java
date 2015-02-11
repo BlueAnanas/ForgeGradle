@@ -181,6 +181,13 @@ public class LiteLoaderPlugin extends UserLibBasePlugin
         }
 
         String mcVersion = delayedString("{MC_VERSION}").call();
+        
+        if (mcVersion=="1.8"){
+        	String llds = "com.mumfrey:liteloader:1.8-SNAPSHOT-mcpnames";
+            project.getLogger().lifecycle("LiteLoader 1.8 dep: "+actualApiName()+" "+llds);
+            project.getDependencies().add(actualApiName(), llds);
+            return;
+        }
 
         LiteLoaderJson loaded = JsonFactory.loadLiteLoaderJson(json);
         VersionObject obj = loaded.versions.get(mcVersion);
@@ -190,7 +197,7 @@ public class LiteLoaderPlugin extends UserLibBasePlugin
         llArtifact = obj.latest;
 
         // add the dependency.
-        project.getLogger().debug("LiteLoader dep: "+llArtifact.getMcpDepString());
+        project.getLogger().lifecycle("LiteLoader dep: "+actualApiName()+" "+llArtifact.getMcpDepString());
         project.getDependencies().add(actualApiName(), llArtifact.getMcpDepString());
     }
 
