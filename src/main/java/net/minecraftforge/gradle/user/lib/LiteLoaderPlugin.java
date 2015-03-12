@@ -182,7 +182,7 @@ public class LiteLoaderPlugin extends UserLibBasePlugin
 
         String mcVersion = delayedString("{MC_VERSION}").call();
         
-        if (mcVersion=="1.8"){
+        if ("1.8".equals(mcVersion)){
         	String llds = "com.mumfrey:liteloader:1.8-SNAPSHOT-mcpnames";
             project.getLogger().lifecycle("LiteLoader 1.8 dep: "+actualApiName()+" "+llds);
             project.getDependencies().add(actualApiName(), llds);

@@ -128,7 +128,7 @@ public abstract class UserLibBasePlugin extends UserBasePlugin<UserExtension>
     @Override
     protected final void doVersionChecks(String version)
     {
-        if (!"1.7.2".equals(version) && !"1.7.10".equals(version))
+        if (!"1.7.2".equals(version) && !"1.7.10".equals(version) && !"1.8".equals(version))
             throw new GradleConfigurationException("ForgeGradle 1.2 does not support " + version);
     }
 
